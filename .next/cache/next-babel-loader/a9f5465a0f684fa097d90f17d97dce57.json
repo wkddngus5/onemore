@@ -1,1 +1,0 @@
-{"ast":null,"code":"import gql from 'graphql-tag';\nexport const ALL_CHARACTERS = gql`\n    query allCharacters {\n        characters {\n            results {\n                id\n                name\n            }\n        }\n    }\n`;","map":null,"metadata":{},"sourceType":"module"}
