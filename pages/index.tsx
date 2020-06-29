@@ -1,25 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import _ from 'lodash';
 import { withApollo } from '../libs/apollo';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_CHARACTERS } from '../gql/allCharacters';
+import { useRouter } from 'next/router';
+import { ALL_SERVICES } from '../gql/services';
 import Layout from '../layout/Layout';
 import CategoryNavigation from '../components/CategoryNavigation';
+import ServiceList from '../components/ServiceList';
+import Service from '../classes/Service';
 
 const IndexPage = () => {
-    const { loading, error, data } = useQuery(ALL_CHARACTERS);
-    if (error) return <h1>Error</h1>;
-    if (loading) return <h1>Loading...</h1>;
+    const router = useRouter();
+    const category = _.get( router, 'query.category' );
+    const [ services, setServices ] = useState<Service[]>([]);
+
+    const { loading, error, data = { services: [] } } = useQuery( ALL_SERVICES, {
+        fetchPolicy: 'cache-and-network',
+        variables: { category: category || 'ALL' },
+    } );
+
+    useEffect( () => {
+        const newServices = _.map( data.services, ( serviceData ) => new Service( serviceData ));
+        setServices( newServices );
+    }, [ data.services ]);
+
+    if ( error ) return <h1>Error</h1>;
+    if ( loading ) return <h1>Loading...</h1>;
 
     return (
         <Layout>
             <CategoryNavigation />
-            {/* <div>
-                {data.characters.results.map((data) => (
-                    <ul key={data.id}>
-                        <li>{data.name}</li>
-                    </ul>
-                ))}
-            </div> */}
+            <ServiceList
+                services={ services } />
         </Layout>
     );
 };

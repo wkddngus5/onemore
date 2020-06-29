@@ -13,38 +13,42 @@ const categoryInfoList = [
     }, {
         key: 'foods',
         label: '음식',
-        className: 'all',
-        href: '/foods',
+        className: 'foods',
+        href: '?category=foods',
     }, {
         key: 'clothes',
         label: '의류',
-        className: 'all',
-        href: '/clothes',
+        className: 'clothes',
+        href: '?category=clothes',
     }, {
         key: 'convenience',
         label: '생활편의',
-        className: 'all',
-        href: '/convenience',
+        className: 'convenience',
+        href: '?category=convenience',
     },
 ];
 
 function CategoryNavigation() {
     const router = useRouter();
+    const { query: { category } } = router;
  
     const categoryItems = useMemo( () => _.map( categoryInfoList, ( categoryInfo ) => {
         const { key, label, className, href } = categoryInfo;
-        const isActive = router.pathname === href;
+        const isActive = category
+            ? category === key
+            : key === 'all';
+
         return (
             <li
                 key={ key }
-                className={ classNames( 'category-item', className, { 'active': isActive } )}>
+                className={ classNames( 'category-item', className, { 'is-active': isActive } )}>
                 <Link href={ href }>
-                    { label }
+                    <a>{ label }</a>
                 </Link>
 
             </li>
         );
-    }), []); 
+    }), [ category ]); 
 
     return (
         <ul className="category-navigation">
