@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import _ from 'lodash';
 import { withApollo } from '../libs/apollo';
-import { useQuery } from '@apollo/react-hooks';
 import { useRouter } from 'next/router';
+import { useQuery } from '@apollo/react-hooks';
 import { ALL_SERVICES } from '../gql/services';
 import Layout from '../layout/Layout';
 import CategoryNavigation from '../components/CategoryNavigation';

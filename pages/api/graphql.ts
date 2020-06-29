@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server-micro';
-import services from '../data/services';
+import services from '../../data/services';
 
 const typeDefs = gql`
     type Service {
