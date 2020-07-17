@@ -14,7 +14,7 @@ function ServiceList({ services }) {
         };
         return (
             <div className="service" key={ id }>
-                <img className="service-image" src={ `data:image/png;base64,${ cover }`}></img>
+                <img className="service-image" src={ cover }></img>
                 <div className="service-info">
                     <h4>{ name }</h4>
                     <p className="description">{ description }</p>

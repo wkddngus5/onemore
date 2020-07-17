@@ -15,7 +15,8 @@ const IndexPage = () => {
     const [ services, setServices ] = useState<Service[]>([]);
 
     const { loading, error, data = { services: [] } } = useQuery( ALL_SERVICES, {
-        fetchPolicy: 'cache-and-network',
+        // fetchPolicy: 'cache-and-network',
+        fetchPolicy: 'network-only',
         variables: { category: category || 'ALL' },
     } );
 

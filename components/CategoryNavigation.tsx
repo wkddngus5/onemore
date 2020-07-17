@@ -11,15 +11,15 @@ const categoryInfoList = [
         className: 'all',
         href: '/',
     }, {
-        key: 'foods',
-        label: '음식',
-        className: 'foods',
-        href: '?category=foods',
+        key: 'goods',
+        label: '생필품',
+        className: 'goods',
+        href: '?category=goods',
     }, {
-        key: 'clothes',
-        label: '의류',
-        className: 'clothes',
-        href: '?category=clothes',
+        key: 'ott',
+        label: '인터넷 미디어',
+        className: 'ott',
+        href: '?category=ott',
     }, {
         key: 'convenience',
         label: '생활편의',
