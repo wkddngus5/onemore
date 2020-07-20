@@ -3,18 +3,18 @@ import _ from 'lodash';
 import { withApollo } from '../libs/apollo';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_SERVICES } from '../gql/services';
+import { GET_SERVICES } from '../gql/services';
 import Layout from '../layout/Layout';
 import CategoryNavigation from '../components/CategoryNavigation';
 import ServiceList from '../components/ServiceList';
-import Service from '../classes/Service';
+import { Service } from '../Doamin/Service';
 
 const IndexPage = () => {
     const router = useRouter();
     const category = _.get( router, 'query.category' );
     const [ services, setServices ] = useState<Service[]>([]);
 
-    const { loading, error, data = { services: [] } } = useQuery( ALL_SERVICES, {
+    const { loading, error, data = { services: [] } } = useQuery( GET_SERVICES, {
         // fetchPolicy: 'cache-and-network',
         fetchPolicy: 'network-only',
         variables: { category: category || 'ALL' },
@@ -25,7 +25,7 @@ const IndexPage = () => {
         setServices( newServices );
     }, [ data.services ]);
 
-    if ( error ) return <h1>Error</h1>;
+    if ( error ) return <h1>Error</h1>
     if ( loading ) return <h1>Loading...</h1>;
 
     return (
@@ -37,4 +37,4 @@ const IndexPage = () => {
     );
 };
 
-export default withApollo({ ssr: true })(IndexPage);
+export default withApollo({ ssr: true })( IndexPage );

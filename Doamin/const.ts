@@ -13,3 +13,8 @@ export enum CATEGORY {
     CONVENIENCE = 'convenience',
     OTT = 'ott',
 }
+
+export enum CURRENCY {
+    WON = 'KRW',
+    DOLLAR = 'USD',
+}

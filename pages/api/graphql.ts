@@ -1,7 +1,14 @@
+import _ from 'lodash';
 import { ApolloServer, gql } from 'apollo-server-micro';
 import services from '../../data/services';
+import { Service } from '../../Doamin/Service';
+import { Item } from '../../Doamin/Item';
 
 const typeDefs = gql`
+    type Query {
+        services(category: String!): [ Service ]
+        service(id: String!): Service
+    }
     type Service {
         id: String
         name: String
@@ -9,10 +16,16 @@ const typeDefs = gql`
         description: String
         category: String
         cover: String
+        items: [ Item ]
     }
-
-    type Query {
-        services(category: String!): [ Service ]
+    type Item {
+        name: String
+        receipt: String
+        billing: String
+        description: String
+        price: Float
+        cover: String
+        currency: String
     }
 `;
 
@@ -20,11 +33,17 @@ const typeDefs = gql`
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
     Query: {
-        // services: () => services,
-        services: ( _parent: any, args: any, ) => {
-            const filtered = services.filter( ({ category }) => args.category === 'ALL' ? true : category === args.category );
+        services: ( _parent: any, args: any ) => {
+            if ( args.category === 'ALL' ) {
+                return services;
+            }
+            const filtered = _.filter( services, ( service: Service ) =>  _.get( service, 'category' ) === args.category );
             return filtered;
         },
+        service: ( _parent: any, args: any ) => {
+            const finded = _.find( services, ( service: Service ) => _.get( service, 'id' ) == args.id );
+            return finded;
+        }
     },
 };
 

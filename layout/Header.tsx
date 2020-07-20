@@ -1,12 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
 
 function Header() {
     return (
         <div className="header">
             <button className="menu-button" />
-            <h1 className="title">
-                One<strong>More</strong>
-            </h1>
+            <Link href="/">
+                <h1 className="title">
+                    One<strong>More</strong>
+                </h1>
+            </Link>
             <button className="search-button" />
         </div>
     )

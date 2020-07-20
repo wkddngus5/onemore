@@ -1,4 +1,4 @@
-import { CYCLE, CATEGORY } from '../Doamin/const';
+import { CYCLE, CATEGORY, CURRENCY } from '../Doamin/const';
 import { Service } from '../Doamin/Service';
 
 const services = [
@@ -15,11 +15,13 @@ const services = [
                 receipt: CYCLE.MONTHLY,
                 billing: CYCLE.HALF_A_YEAR,
                 price: 89000,
+                currency: CURRENCY.WON,
             }, {
                 name: '6개월 정기구독 + 이지스냅(black/white) 프레임',
                 receipt: CYCLE.MONTHLY,
                 billing: CYCLE.HALF_A_YEAR,
                 price: 141000,
+                currency: CURRENCY.WON,
             }
         ],
     }),
@@ -36,21 +38,25 @@ const services = [
                 receipt: CYCLE.TWO_WEEKS,
                 billing: CYCLE.MONTHLY,
                 price: 17900,
+                currency: CURRENCY.WON,
             }, {
                 name: '가벼운 M꽃 구독',
                 receipt: CYCLE.TWO_WEEKS,
                 billing: CYCLE.MONTHLY,
                 price: 26900,
+                currency: CURRENCY.WON,
             }, {
                 name: '가벼운 L꽃 구독',
                 receipt: CYCLE.TWO_WEEKS,
                 billing: CYCLE.MONTHLY,
                 price: 34900,
+                currency: CURRENCY.WON,
             }, {
                 name: '가벼운 XL꽃 구독',
                 receipt: CYCLE.TWO_WEEKS,
                 billing: CYCLE.MONTHLY,
                 price: 49900,
+                currency: CURRENCY.WON,
             },
         ],
     }),
@@ -66,6 +72,7 @@ const services = [
             receipt: CYCLE.MONTHLY,
             billing: CYCLE.MONTHLY,
             price: 39000,
+            currency: CURRENCY.WON,
         }],
     }), 
     new Service({
@@ -80,6 +87,7 @@ const services = [
             receipt: CYCLE.WEEKLY,
             billing: CYCLE.MONTHLY,
             price: 89000,
+            currency: CURRENCY.WON,
         }],
     }),
     new Service({
@@ -95,11 +103,13 @@ const services = [
                 receipt: CYCLE.HALF_A_YEAR,
                 billing: CYCLE.YEAR,
                 price: 79000,
+                currency: CURRENCY.WON,
             }, {
                 name: '자코라 팬서비스4 프리미엄 Ⅳ IH',
                 receipt: CYCLE.HALF_A_YEAR,
                 billing: CYCLE.YEAR,
                 price: 89000,
+                currency: CURRENCY.WON,
             },
         ],
     }),
@@ -116,21 +126,25 @@ const services = [
                 receipt: CYCLE.WEEKLY,
                 billing: CYCLE.MONTHLY,
                 price: 88000,
+                currency: CURRENCY.WON,
             }, {
                 name: '셔츠(White/Blue) 5장',
                 receipt: CYCLE.WEEKLY,
                 billing: CYCLE.MONTHLY,
                 price: 148000,
+                currency: CURRENCY.WON,
             }, {
                 name: '셔츠(Random box) 5장',
                 receipt: CYCLE.WEEKLY,
                 billing: CYCLE.MONTHLY,
                 price: 96000,
+                currency: CURRENCY.WON,
             }, {
                 name: '셔츠(Random box) 5장',
                 receipt: CYCLE.WEEKLY,
                 billing: CYCLE.MONTHLY,
                 price: 160000,
+                currency: CURRENCY.WON,
             },
         ],
     }),
@@ -147,6 +161,7 @@ const services = [
                 receipt: CYCLE.DAILY,
                 billing: CYCLE.MONTHLY,
                 price: 27000,
+                currency: CURRENCY.WON,
             },
         ],
     }), 
@@ -229,6 +244,7 @@ const services = [
                     receipt: CYCLE.DAILY,
                     billing: CYCLE.MONTHLY,
                     price: 19800,
+                    currency: CURRENCY.WON,
                 },
             ]
         }
@@ -294,6 +310,15 @@ const services = [
         description: '스트리밍 월 7,900원~13,900원',
         category: CATEGORY.OTT,
         cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/wavve-cover.png',
+        items: [],
+    }),
+    new Service({
+        id: 23,
+        name: '시즌',
+        uri: 'https:/myseezn.com/',
+        description: '스트리밍 월 9,900원',
+        category: CATEGORY.OTT,
+        cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/seezn-cover.png',
         items: [],
     }),
 ];
