@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import styles from './Header.module.css';
 
 function Header() {
     return (
@@ -10,7 +11,9 @@ function Header() {
                     One<strong>More</strong>
                 </h1>
             </Link>
-            <button className="search-button" />
+            <Link href="/search">
+                <button className="search-button" />
+            </Link>
         </div>
     )
 }

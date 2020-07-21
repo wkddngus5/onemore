@@ -3,7 +3,7 @@ import { Domain } from './Domain';
 import { Item, ItemData } from './Item';
 import { CATEGORY } from './const';
 
-interface ServiceData {
+export interface ServiceData {
     id: number;
     name: string;
     uri: string;
