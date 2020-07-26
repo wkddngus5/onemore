@@ -25,8 +25,20 @@ const IndexPage = () => {
         setServices( newServices );
     }, [ data.services ]);
 
-    if ( error ) return <h1>Error</h1>
-    if ( loading ) return <h1>Loading...</h1>;
+    if ( error ) {
+        return (
+            <div>
+                <h1>Error</h1>
+            </div>
+        );
+    }
+    if ( loading ) {
+        return (
+            <div>
+                <h1>Loading...</h1>;
+            </div>
+        );
+    }
 
     return (
         <Layout>
