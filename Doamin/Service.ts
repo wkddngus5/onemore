@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Domain } from './Domain';
+import Domain from './Domain';
 import { Item, ItemData } from './Item';
 import { CATEGORY } from './const';
 
@@ -15,18 +15,23 @@ export interface ServiceData {
 
 export class Service extends Domain {
     private id: number;
+
     private name: string;
+
     private uri: string;
+
     private description: string;
+
     private category: CATEGORY;
+
     private cover: string;
+
     private items: Item[];
 
-    constructor( data: ServiceData ) {
+    constructor(data: ServiceData) {
         super();
-        this.setter( data );
+        this.setter(data);
         const { items: itemsData } = data;
-        this.items = _.map( itemsData, ( itemData: ItemData ) => new Item( itemData ) );
+        this.items = _.map(itemsData, (itemData: ItemData) => new Item(itemData));
     }
 }
-

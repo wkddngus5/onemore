@@ -1,0 +1,12 @@
+.menu {
+    position: fixed;
+    width: 400px;
+    left: -400px;
+    top: 0;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.menu.is-visible {
+    left: 0;
+}

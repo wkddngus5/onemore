@@ -5,7 +5,7 @@ export enum CYCLE {
     MONTHLY = 'monthly',
     HALF_A_YEAR = 'halfAYear',
     YEAR = 'year',
-};
+}
 
 // 실물, 생활편의, OTT
 export enum CATEGORY {

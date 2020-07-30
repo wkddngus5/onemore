@@ -31,9 +31,11 @@ const categoryInfoList = [
 function CategoryNavigation() {
     const router = useRouter();
     const { query: { category } } = router;
- 
-    const categoryItems = useMemo( () => _.map( categoryInfoList, ( categoryInfo ) => {
-        const { key, label, className, href } = categoryInfo;
+
+    const categoryItems = useMemo(() => _.map(categoryInfoList, (categoryInfo) => {
+        const {
+            key, label, className, href,
+        } = categoryInfo;
         const isActive = category
             ? category === key
             : key === 'all';
@@ -41,14 +43,15 @@ function CategoryNavigation() {
         return (
             <li
                 key={ key }
-                className={ classNames( 'category-item', className, { 'is-active': isActive } )}>
+                className={ classNames('category-item', className, { 'is-active': isActive }) }
+            >
                 <Link href={ href }>
-                    <a>{ label }</a>
+                    { label }
                 </Link>
 
             </li>
         );
-    }), [ category ]); 
+    }), [ category ]);
 
     return (
         <ul className="category-navigation">
