@@ -22,7 +22,7 @@ const services = [
                 billing: CYCLE.HALF_A_YEAR,
                 price: 141000,
                 currency: CURRENCY.WON,
-            }
+            },
         ],
     }),
     new Service({
@@ -67,14 +67,14 @@ const services = [
         description: '매월 전통주 정기배송 39,000원',
         category: CATEGORY.GOODS,
         cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/sooldamhwa-cover.png',
-        items: [{
+        items: [ {
             name: '전통주',
             receipt: CYCLE.MONTHLY,
             billing: CYCLE.MONTHLY,
             price: 39000,
             currency: CURRENCY.WON,
-        }],
-    }), 
+        } ],
+    }),
     new Service({
         id: 4,
         name: '삼이오',
@@ -82,13 +82,13 @@ const services = [
         description: '7년근 산삼 정기구독 89,000원',
         category: CATEGORY.GOODS,
         cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/325-cover.png',
-        items: [{
+        items: [ {
             name: '정 7년근 산양산삼',
             receipt: CYCLE.WEEKLY,
             billing: CYCLE.MONTHLY,
             price: 89000,
             currency: CURRENCY.WON,
-        }],
+        } ],
     }),
     new Service({
         id: 5,
@@ -164,7 +164,7 @@ const services = [
                 currency: CURRENCY.WON,
             },
         ],
-    }), 
+    }),
     new Service({
         id: 8,
         name: '쏘카',
@@ -173,7 +173,7 @@ const services = [
         category: CATEGORY.CONVENIENCE,
         cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/socar-cover.png',
         items: [],
-    }), 
+    }),
     new Service({
         id: 9,
         name: '넷플릭스',
@@ -210,8 +210,8 @@ const services = [
             category: CATEGORY.CONVENIENCE,
             cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/toss-cover.png',
             items: [],
-        }
-    ), 
+        },
+    ),
     new Service({
         id: 13,
         name: '해톡',
@@ -227,7 +227,7 @@ const services = [
         uri: 'https://www.tlj.co.kr:7008',
         description: '1일 1회 커피 구독권 19,900원/월, 주 1회 식빵 구독권 7,900/월, 1일 1회 커피+모닝 샌드위치 49,500원/월',
         category: CATEGORY.GOODS,
-        cover: '	https://onemore.s3.ap-northeast-2.amazonaws.com/touslesjours-cover.png',
+        cover: 'https://onemore.s3.ap-northeast-2.amazonaws.com/touslesjours-cover.png',
         items: [],
     }),
     new Service(
@@ -246,8 +246,8 @@ const services = [
                     price: 19800,
                     currency: CURRENCY.WON,
                 },
-            ]
-        }
+            ],
+        },
     ),
     new Service({
         id: 16,
@@ -324,4 +324,3 @@ const services = [
 ];
 
 export default services;
-

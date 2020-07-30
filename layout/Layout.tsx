@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from './Header';
 
-function Layout({ children }) {
+function Layout({ children }: { children: React.FunctionComponent }) {
     return (
         <div className="layout">
             <Head>

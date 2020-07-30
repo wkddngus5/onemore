@@ -14,16 +14,15 @@ export const initOnContext = (ctx) => {
     if (process.env.NODE_ENV === 'development') {
         if (inAppContext) {
             console.warn(
-                'Warning: You have opted-out of Automatic Static Optimization due to `withApollo` in `pages/_app`.\n' +
-                    'Read more: https://err.sh/next.js/opt-out-auto-static-optimization\n',
+                'Warning: You have opted-out of Automatic Static Optimization due to `withApollo` in `pages/_app`.\n'
+                    + 'Read more: https://err.sh/next.js/opt-out-auto-static-optimization\n',
             );
         }
     }
 
     // Initialize ApolloClient if not already done
-    const apolloClient =
-        ctx.apolloClient ||
-        initApolloClient(ctx.apolloState || {}, inAppContext ? ctx.ctx : ctx);
+    const apolloClient = ctx.apolloClient
+        || initApolloClient(ctx.apolloState || {}, inAppContext ? ctx.ctx : ctx);
 
     // We send the Apollo Client as a prop to the component to avoid calling initApollo() twice in the server.
     // Otherwise, the component would have to call initApollo() again but this
@@ -83,16 +82,15 @@ export const withApollo = ({ ssr = false } = {}) => (PageComponent) => {
         }
 
         return (
-            <ApolloProvider client={client}>
-                <PageComponent {...pageProps} />
+            <ApolloProvider client={ client }>
+                <PageComponent { ...pageProps } />
             </ApolloProvider>
         );
     };
 
     // Set the correct displayName in development
     if (process.env.NODE_ENV !== 'production') {
-        const displayName =
-            PageComponent.displayName || PageComponent.name || 'Component';
+        const displayName = PageComponent.displayName || PageComponent.name || 'Component';
         WithApollo.displayName = `withApollo(${displayName})`;
     }
 
@@ -143,7 +141,7 @@ export const withApollo = ({ ssr = false } = {}) => (PageComponent) => {
                         // your entire AppTree once for every query. Check out apollo fragments
                         // if you want to reduce the number of rerenders.
                         // https://www.apollographql.com/docs/react/data/fragments/
-                        await getDataFromTree(<AppTree {...props} />);
+                        await getDataFromTree(<AppTree { ...props } />);
                     } catch (error) {
                         // Prevent Apollo Client GraphQL errors from crashing SSR.
                         // Handle them in components via the data.error prop:
